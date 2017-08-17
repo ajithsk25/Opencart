@@ -1,0 +1,10 @@
+.idea/*
+system/storage/cache/*
+!system/storage/cache/.gitkeep
+system/storage/logs/*
+!system/storage/logs/index.html
+!system/storage/logs/.gitkeep
+system/storage/upload
+!system/storage/upload/.gitkeep
+system/storage/session/*
+!system/storage/session/.htaccess

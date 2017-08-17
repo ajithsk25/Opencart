@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name><![CDATA[soconfig theme]]></name>
+    <version><![CDATA[1.0.0]]></version>
+    <author><![CDATA[Magentech - Magentech.com]]></author>
+	<!--Dev: Custom-->
+	
+	<file path="admin/controller/common/column_left.php">
+		<operation>
+			<search><![CDATA[$this->url->link('catalog/product']]></search>
+			<add  position="replace"><![CDATA[$this->url->link('catalog/mproduct']]></add>
+		</operation>
+	   <operation>
+			<search><![CDATA[$design = array();]]></search>
+			<add  position="before"><![CDATA[
+				$magentech = array();
+				
+				if ($this->user->hasPermission('access', 'extension/module/soconfig')) {		
+					$magentech[] = array(
+						'name'	   => 'So Themes Config',
+						'href'     => $this->url->link('extension/module/soconfig', 'token=' . $this->session->data['token'], true),
+						'children' => array()
+					);
+				}
+				
+				if ($this->user->hasPermission('access', 'extension/module/so_html_content')) {		
+					$magentech[] = array(
+						'name'	   => 'So Html Content',
+						'href'     => $this->url->link('extension/module/so_html_content', 'token=' . $this->session->data['token'], true),
+						'children' => array()
+					);
+				}
+				
+				if ($this->user->hasPermission('access', 'extension/module/so_basic_products')) {		
+					$magentech[] = array(
+						'name'	   => 'So Basic Products',
+						'href'     => $this->url->link('extension/module/so_basic_products', 'token=' . $this->session->data['token'], true),
+						'children' => array()
+					);
+				}
+				
+				
+				if ($this->user->hasPermission('access', 'extension/module/so_latest_blog')) {		
+					$magentech[] = array(
+						'name'	   => 'So Latest Blog',
+						'href'     => $this->url->link('extension/module/so_latest_blog', 'token=' . $this->session->data['token'], true),
+						'children' => array()
+					);
+				}
+				if ($this->user->hasPermission('access', 'extension/module/soconfig')) {		
+					$magentech[] = array(
+						'name'	   => 'Market Place <label class="label label-danger label-new">New</label>',
+						'href'     => $this->url->link('extension/module/soconfig&market=marketplace0', 'token=' . $this->session->data['token'], true),
+						'children' => array()
+					);
+				}
+
+				if ($extension) {					
+					$data['menus'][] = array(
+						'id'       => 'menu-magentech',
+						'icon'	   => 'fa-wrench icon-so', 
+						'name'	   => 'OpenCartWorks',
+						'href'     => '',
+						'children' => $magentech
+					);		
+				}
+				
+			]]></add>
+		</operation>
+		
+	</file>
+
+
+
+	<!--  End admin/controller-->
+	
+</modification>
