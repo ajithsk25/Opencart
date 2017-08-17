@@ -6,5 +6,7 @@ system/storage/logs/*
 !system/storage/logs/.gitkeep
 system/storage/upload
 !system/storage/upload/.gitkeep
+!system/storage/upload/index.html
 system/storage/session/*
 !system/storage/session/.htaccess
+!system/storage/session/index.html
